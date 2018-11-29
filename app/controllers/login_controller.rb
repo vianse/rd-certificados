@@ -34,7 +34,7 @@ class LoginController < ApplicationController
   end
   def validar_admin
     if Admin.exists?(email: params[:email]) and Admin.exists?(password: params[:password])
-      #crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
+      crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
       #encrypted_data = crypt.encrypt_and_sign(params[:email])
       #cookies[:admin_id] = encrypted_data
       redirect_to "/home/index?token=" #+ encrypted_data
