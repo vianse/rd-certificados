@@ -29,7 +29,7 @@ class LoginController < ApplicationController
       #cipher = Digest::SHA1.hexdigest params[:email]
       #encrypted_data = Digest::SHA1.hexdigest params[:email]
       key = SecureRandom.random_bytes(32)
-      crypt = ActiveSupport::MessageEncryptor.new(key) 
+      crypt = ActiveSupport::MessageEncryptor.new('DES-EDE3-CBC') 
       encrypted_data = crypt.encrypt_and_sign(params[:email])
       cookies[:user_id] = encrypted_data
       redirect_to "/inbox?token=" + encrypted_data
