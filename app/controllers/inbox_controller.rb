@@ -1,13 +1,20 @@
 class InboxController < ApplicationController
   require 'prawn/table'
   require "open-uri"
+  require 'openssl'
+  def decrypt(key)
+    cipher = OpenSSL::Cipher.new('DES-EDE3-CBC').decrypt
+    cipher.key = Digest::SHA1.hexdigest key
+    s = [self].pack("H*").unpack("C*").pack("c*")
+
+    cipher.update(s) + cipher.final
+  end
   def index
     cookies[:user_id] = params[:token]
    # crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
    # decrypted_back = crypt.decrypt_and_verify(params[:token])
-   cipher = OpenSSL::Cipher.new('DES-EDE3-CBC').decrypt
-   cipher_d = Digest::SHA1.hexdigest params[:token]
-   puts cipher_d
+  
+    puts cipher.decrypt(cookies[:user_id])
     @usuarios = Usuario.where(:groupId => params[:grupo]).where(:email=>cipher_d)
     @usuario = Usuario.where(:email=>cipher_d).pluck(:groupId)
     @certificados = Certificado.where(:grupoid => [@usuario])
