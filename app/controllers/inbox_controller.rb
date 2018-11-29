@@ -6,9 +6,10 @@ class InboxController < ApplicationController
    # crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
    # decrypted_back = crypt.decrypt_and_verify(params[:token])
    cipher = OpenSSL::Cipher.new('DES-EDE3-CBC').decrypt
-   cipher = Digest::SHA1.hexdigest params[:token]
-    @usuarios = Usuario.where(:groupId => params[:grupo]).where(:email=>cipher)
-    @usuario = Usuario.where(:email=>cipher).pluck(:groupId)
+   cipher_d = Digest::SHA1.hexdigest params[:token]
+   puts cipher_d
+    @usuarios = Usuario.where(:groupId => params[:grupo]).where(:email=>cipher_d)
+    @usuario = Usuario.where(:email=>cipher_d).pluck(:groupId)
     @certificados = Certificado.where(:grupoid => [@usuario])
     @certificado = Certificado.where(:grupoid => params[:grupo])
     respond_to do |format|
