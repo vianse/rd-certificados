@@ -1,0 +1,34 @@
+
+
+<article class="mw6 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
+ <h1>Grupos</h1>
+  <div class="tc">
+  <%= form_with(model: group, local: true) do |form| %>
+    <% if group.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+  
+        <ul>
+        <% group.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <%= form.label "Nombre" %>
+      <%= form.text_field :name, id: :group_name,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
+    </div>
+  
+    <div class="field">
+      <%= form.label "Número" %>
+      <%= form.text_field :number, id: :group_number,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
+    </div>
+  
+    <div class="actions">
+      <%= form.submit "Guardar", :class=>"f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-dark-green" %>
+    </div>
+  <% end %>
+  </div>
+</article>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  imagen: MyString
+  nombre: MyString
+  texto: MyString
+  grupoid: MyString
+  serie: MyString
+  estado: MyString
+  descargas: MyString
+
+two:
+  imagen: MyString
+  nombre: MyString
+  texto: MyString
+  grupoid: MyString
+  serie: MyString
+  estado: MyString
+  descargas: MyString

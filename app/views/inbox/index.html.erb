@@ -1,0 +1,76 @@
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300|Raleway:200,900|Over+the+Rainbow' rel='stylesheet' type='text/css'>
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.3.1/velocity.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+<script>
+    $('.hamb-wrap').on('click', function(){
+      $(this).parent().children('p').toggle();
+      $(this).children().toggleClass('active');
+      $('nav').fadeToggle(200);
+    }) 
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+      
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+      
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+    };
+    var token = getUrlParameter('token');
+   
+
+</script>
+<header>
+  <div class="hero">
+    <article class="pa3 pa5-ns">
+        <h1 class="f4 bold center mw6">Menú</h1>
+        <ul class="list pl0 ml0 center mw6 ba b--light-silver br2">
+          <li class="ph3 pv3 bb b--light-silver"><a href="/home/out">Salir</a></li>
+        </ul>
+      </article>
+  </div>
+</header>
+<section class="content">
+  <h1>Mis Certificados</h1>
+    <div class="ph1">
+   
+    </div>
+    <div class="pa2">
+      <div class="overflow-auto">
+        <table class="f6 w-100 mw8 center" cellspacing="0">
+          <thead>
+            <tr>
+              
+       
+              <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Curso</th>
+              <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Grupo</th>
+        
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @certificados.each do |certificado| %>
+            <tr>
+              
+              <td><%= certificado.texto %></td>
+              <td><%= certificado.grupoid %></td>
+             
+              <td><a href="/inbox.pdf?grupo=<%=certificado.grupoid%>&token=<%=params[:token]%>" id="download"> Descargar</a></td>
+              <td></td>
+              <td></td>
+            </tr>
+          <% end %>
+            </tbody>
+        </table>
+      </div>
+    </div>
+</section>
+
+

@@ -1,0 +1,56 @@
+<article class="mw6 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
+<h1>Certificados</h1>
+ <div class="tc">
+ <%= form_with(model: certificado, local: true) do |form| %>
+  <% if certificado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(certificado.errors.count, "error") %> prohibited this certificado from being saved:</h2>
+
+      <ul>
+      <% certificado.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "Fondo" %>
+    <%= form.text_field :imagen, id: :certificado_imagen,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Nombre" %>
+    <%= form.text_field :nombre, id: :certificado_nombre,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Texto" %>
+    <%= form.text_field :texto, id: :certificado_texto,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Grupo" %>
+    <%= form.text_field :grupoid, id: :certificado_grupoid,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Serie" %>
+    <%= form.text_field :serie, id: :certificado_serie,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Estado" %>
+    <select id="certificado_estado" name="certificado[estado]" class="input-reset ba b--black-20 pa2 mb2 db w-100">
+        <option value="Activo">Activo</option>
+        <option value="Inactivo">Inactivo</option>
+    </select>
+    
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Guardar", :class=>"f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-dark-green" %>
+  </div>
+<% end %>
+ </div>
+</article>

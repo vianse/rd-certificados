@@ -1,0 +1,294 @@
+<style>
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 21px;
+  font-family: 'Open Sans';
+}
+
+html, body {
+  height: 100%;
+}
+
+h1 {
+  font-family: 'Raleway';
+  font-size: 2.7em;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  color: #222;
+  margin-bottom: .3em;
+}
+
+p {
+  font-weight: 200;
+  color: #525252;
+}
+
+.fl {
+  float: left;
+  margin: 20px;
+}
+
+.fr {
+  float: right;
+  margin: 20px;
+}
+
+.hero {
+  width: 40%;
+  height: 100%;
+  position: fixed;
+  background-size: cover;
+  background-position: center 30%;
+}
+.hero .hamb-wrap {
+  height: 30px;
+  width: 40px;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  cursor: pointer;
+  z-index: 2;
+}
+.hero .hamb {
+  height: 3px;
+  width: 35px;
+  background: #fff;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  transition: 0.2s;
+  border-radius: 10% 10% 10% 10% / 40% 40% 40% 40%;
+}
+.hero .hamb:before, .hero .hamb:after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  height: 3px;
+  width: 100%;
+  transition: 0.2s;
+  border-radius: 10% 10% 10% 10% / 50% 50% 50% 50%;
+}
+.hero .hamb:before {
+  top: 8px;
+}
+.hero .hamb:after {
+  top: -8px;
+}
+.hero .active {
+  background: none;
+  transition: 0.2s;
+}
+.hero .active:before, .hero .active:after {
+  transition: 0.2s;
+  top: 0;
+}
+.hero .active:before {
+  transform: rotate(45deg);
+}
+.hero .active:after {
+  transform: rotate(-45deg);
+}
+.hero .logo {
+  color: white;
+  font-family: 'Over the Rainbow';
+  font-size: 1.9em;
+  margin: 0 0 0 85px;
+  line-height: 2;
+}
+.hero nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding-top: 60px;
+  font-family: 'Raleway';
+  font-size: 2em;
+  display: none;
+  background: rgba(0, 0, 0, 0.8);
+}
+.hero nav ul {
+  margin: 0 0 0 25px;
+  padding: 0;
+}
+.hero nav li {
+  list-style-type: none;
+  margin: 25px 0;
+  position: relative;
+}
+.hero nav a {
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.content {
+  width: 60%;
+  min-height: 100%;
+  margin-left: 40%;
+  padding: 4em 1.5em;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+
+  .hero {
+    height: 350px;
+    width: 100%;
+    display: block;
+    position: relative;
+    padding: 1px;
+  }
+  .hero nav {
+    font-size: 1.7em;
+  }
+
+  .content {
+    margin-left: 0;
+    padding-top: 0;
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  img.fl, img.fr {
+    float: none;
+    margin: 10px 0;
+    width: 100%;
+    height: auto;
+  }
+}
+.ba {
+    border-style: solid;
+    border-width: 1px;
+}
+
+.bb {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.b--light-silver {
+    border-color: #aaa;
+}
+
+.br2 {
+    border-radius: .25rem;
+}
+
+.list {
+    list-style-type: none;
+}
+
+.mw6 {
+    max-width: 32rem;
+}
+
+.pa3 {
+    padding: 1rem;
+}
+
+.pl0 {
+    padding-left: 0;
+}
+
+.pv3 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.ph3 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.ml0 {
+    margin-left: 0;
+}
+
+.f4 {
+    font-size: 1.25rem;
+}
+
+.center {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media screen and (min-width: 30em) {
+    .pa5-ns {
+        padding: 4rem;
+    }
+}
+
+</style>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300|Raleway:200,900|Over+the+Rainbow' rel='stylesheet' type='text/css'>
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.3.1/velocity.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+<script>
+    $('.hamb-wrap').on('click', function(){
+      $(this).parent().children('p').toggle();
+      $(this).children().toggleClass('active');
+      $('nav').fadeToggle(200);
+    }) 
+    </script>
+<header>
+  <div class="hero">
+    <article class="pa3 pa5-ns">
+        <h1 class="f4 bold center mw6">Menú</h1>
+        <ul class="list pl0 ml0 center mw6 ba b--light-silver br2">
+          <li class="ph3 pv3 bb b--light-silver"><a href="">Grupos</a></li>
+          <li class="ph3 pv3 bb b--light-silver"><a href="/usuarios">Usuarios</a></li>
+          <li class="ph3 pv3 bb b--light-silver"><a href="/certificados">Certificados</a></li>
+          <li class="ph3 pv3 bb b--light-silver"><a href="/admins">Configuración</a></li>
+          <li class="ph3 pv3 bb b--light-silver"><a href="/home/out_admin">Salir</a></li>
+        </ul>
+      </article>
+  </div>
+</header>
+<section class="content">
+  <h1>Grupos</h1>
+  <div class="ph1">
+    <%= link_to 'Nuevo grupo', new_group_path, :class=>"f6 link dim br2 ph3 pv2 mb2 dib white bg-green" %>
+  </div>
+  <div class="pa2">
+    <div class="overflow-auto">
+      <table class="f6 w-100 mw8 center" cellspacing="0">
+        <thead>
+          <tr>
+            <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Nombre</th>
+            <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Número</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @groups.each do |group| %>
+              <tr>
+                <td><%= group.name %></td>
+                <td><%= group.number %></td>
+                <td><%= link_to 'Editar', edit_group_path(group) %>
+                    <%= link_to group,  :method => :delete, :data => { :confirm => 'Are you sure?' }  do %>
+                    <span>Eliminar</span>
+                  <% end %>
+                </td>
+                <td>
+                    
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+      </table>
+    </div>
+  </div>
+  
+  
+</section>
