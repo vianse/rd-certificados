@@ -9,8 +9,8 @@ class InboxController < ApplicationController
    # decrypted_back = crypt.decrypt_and_verify(params[:token])
    #cipher = OpenSSL::Cipher.new('DES-EDE3-CBC').encrypt
    #cipher = Digest::SHA1.hexdigest params[:token]
-   key = SecureRandom.random_bytes(32)
-   crypt = ActiveSupport::MessageEncryptor.new(key)
+   #key = SecureRandom.random_bytes(32)
+   crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
    decrypted_back = crypt.decrypt_and_verify(params[:token])
     puts decrypted_back
     @usuarios = Usuario.where(:groupId => params[:grupo]).where(:email=>decrypted_back)
