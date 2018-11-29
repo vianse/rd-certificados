@@ -37,7 +37,7 @@ class LoginController < ApplicationController
       #crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
       #encrypted_data = crypt.encrypt_and_sign(params[:email])
       #cookies[:admin_id] = encrypted_data
-      redirect_to "/home/index?token=" + encrypted_data
+      redirect_to "/home/index?token=" #+ encrypted_data
     else
       redirect_to "/"
    
