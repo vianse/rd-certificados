@@ -24,8 +24,8 @@ class LoginController < ApplicationController
     if Usuario.exists?(email: params[:email])
       puts Usuario.exists?(email: params[:email])
       
-      crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
-      encrypted_data = crypt.encrypt_and_sign(params[:email])
+      #crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
+      encrypted_data = Digest::SHA1.hexdigest params[:email]
       cookies[:user_id] = encrypted_data
       redirect_to "/inbox?token=" + encrypted_data
     else
@@ -36,7 +36,10 @@ class LoginController < ApplicationController
   def validar_admin
     if Admin.exists?(email: params[:email]) and Admin.exists?(password: params[:password])
       #crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
-      encrypted_data = Digest::SHA1.hexdigest params[:email]
+      cipher = OpenSSL::Cipher.new('DES-EDE3-CBC').encrypt
+      cipher.key = Digest::SHA1.hexdigest params[:email]
+      encrypted_data = cipher.key
+     # encrypted_data = Digest::SHA1.hexdigest params[:email]
       #encrypted_data = crypt.encrypt_and_sign(params[:email])
       cookies[:admin_id] = encrypted_data
       redirect_to "/home/index?token=" + encrypted_data
