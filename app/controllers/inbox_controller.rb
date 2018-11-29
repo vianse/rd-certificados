@@ -14,7 +14,7 @@ class InboxController < ApplicationController
    # crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
    # decrypted_back = crypt.decrypt_and_verify(params[:token])
   
-    puts cipher.decrypt(cookies[:user_id])
+    puts decrypt(cookies[:user_id])
     @usuarios = Usuario.where(:groupId => params[:grupo]).where(:email=>cipher_d)
     @usuario = Usuario.where(:email=>cipher_d).pluck(:groupId)
     @certificados = Certificado.where(:grupoid => [@usuario])
