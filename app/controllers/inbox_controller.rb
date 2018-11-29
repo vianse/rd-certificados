@@ -1,7 +1,7 @@
 class InboxController < ApplicationController
   require 'prawn/table'
   require "open-uri"
-  require 'openssl'
+  
 
   def index
     cookies[:user_id] = params[:token]
