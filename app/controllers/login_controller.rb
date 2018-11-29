@@ -25,9 +25,11 @@ class LoginController < ApplicationController
       puts Usuario.exists?(email: params[:email])
       
       #crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
-      encrypted_data = Digest::SHA1.hexdigest params[:email]
-      cookies[:user_id] = encrypted_data
-      redirect_to "/inbox?token=" + encrypted_data
+      cipher = OpenSSL::Cipher.new('DES-EDE3-CBC').encrypt
+      cipher = Digest::SHA1.hexdigest params[:email]
+      #encrypted_data = Digest::SHA1.hexdigest params[:email]
+      cookies[:user_id] = cipher
+      redirect_to "/inbox?token=" + cipher
     else
       redirect_to "/"
       puts params[:email]
