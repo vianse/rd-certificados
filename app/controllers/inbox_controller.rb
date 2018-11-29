@@ -12,7 +12,7 @@ class InboxController < ApplicationController
    key = SecureRandom.random_bytes(32)
    crypt = ActiveSupport::MessageEncryptor.new(key)
    decrypted_back = crypt.decrypt_and_verify(params[:token])
-    puts cipher
+    puts decrypted_back
     @usuarios = Usuario.where(:groupId => params[:grupo]).where(:email=>decrypted_back)
     @usuario = Usuario.where(:email=>decrypted_back).pluck(:groupId)
     @certificados = Certificado.where(:grupoid => [@usuario])
