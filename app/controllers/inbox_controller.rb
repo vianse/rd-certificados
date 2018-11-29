@@ -11,7 +11,7 @@ class InboxController < ApplicationController
    #cipher = Digest::SHA1.hexdigest params[:token]
    key = SecureRandom.random_bytes(32)
    crypt = ActiveSupport::MessageEncryptor.new(key)
-   decrypted_back = crypt.decrypt_and_verify(cookies[:user_id])
+   decrypted_back = crypt.decrypt_and_verify(params[:token])
     puts cipher
     @usuarios = Usuario.where(:groupId => params[:grupo]).where(:email=>decrypted_back)
     @usuario = Usuario.where(:email=>decrypted_back).pluck(:groupId)
