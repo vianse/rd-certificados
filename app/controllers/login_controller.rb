@@ -1,5 +1,6 @@
 class LoginController < ApplicationController
   skip_before_action :verify_authenticity_token
+  require 'digest'
   def index
  
     if cookies[:user_id]
@@ -34,8 +35,9 @@ class LoginController < ApplicationController
   end
   def validar_admin
     if Admin.exists?(email: params[:email]) and Admin.exists?(password: params[:password])
-      crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
-      encrypted_data = crypt.encrypt_and_sign(params[:email])
+      #crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
+      Digest::SHA1.hexdigest params[:email]
+      #encrypted_data = crypt.encrypt_and_sign(params[:email])
       #cookies[:admin_id] = encrypted_data
       redirect_to "/home/index?token=" #+ encrypted_data
     else
