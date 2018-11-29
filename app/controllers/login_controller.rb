@@ -38,13 +38,16 @@ class LoginController < ApplicationController
   def validar_admin
     if Admin.exists?(email: params[:email]) and Admin.exists?(password: params[:password])
       #crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
-      cipher = OpenSSL::Cipher.new('DES-EDE3-CBC').encrypt
-      cipher = Digest::SHA1.hexdigest params[:email]
+      #cipher = OpenSSL::Cipher.new('DES-EDE3-CBC').encrypt
+      #cipher = Digest::SHA1.hexdigest params[:email]
       
      # encrypted_data = Digest::SHA1.hexdigest params[:email]
       #encrypted_data = crypt.encrypt_and_sign(params[:email])
-      cookies[:admin_id] = cipher
-      redirect_to "/home/index?token=" + cipher
+      key = SecureRandom.random_bytes(32)
+      crypt = ActiveSupport::MessageEncryptor.new(key) 
+      encrypted_data = crypt.encrypt_and_sign(params[:email])
+      cookies[:admin_id] = encrypted_data
+      redirect_to "/home/index?token=" + encrypted_data
     else
       redirect_to "/"
    
