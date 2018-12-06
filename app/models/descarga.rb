@@ -1,0 +1,2 @@
+class Descarga < ApplicationRecord
+end

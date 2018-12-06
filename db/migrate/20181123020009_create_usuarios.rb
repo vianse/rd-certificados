@@ -7,7 +7,7 @@ class CreateUsuarios < ActiveRecord::Migration[5.1]
       t.string :email
       t.string :groupId
       t.string :userId
-
+      t.string :folio
       t.timestamps
     end
   end

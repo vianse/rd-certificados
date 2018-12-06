@@ -4,8 +4,10 @@ class ReportPdf < Prawn::Document
       super(:page_layout => :landscape)
       @certificado = certificado
       @name = usuarios[0].name
+      @title = usuarios[0].title
       @lastname = usuarios[0].lastName
       @serie = certificado[0].serie
+      @folio = usuarios[0].folio
       @texto = certificado[0].texto
       @fondo = certificado[0].imagen
       header
@@ -51,14 +53,14 @@ class ReportPdf < Prawn::Document
       end
 
       bounding_box([50, y_position2], :width => 620) do
-        text "#{@name} #{@lastname}", size: 30, style: :bold, :align => :center
+        text "#{@title} #{@name} #{@lastname}", size: 30, style: :bold, :align => :center
       end
       bounding_box([50, y_position3], :width => 620) do
         text "#{@texto}",  size: 15, style: :bold, :align => :center, :color =>  "003f81"
       end
 
       bounding_box([630, y_position4], :width => 370) do
-        text "#{@serie}", size: 13, style: :bold
+        text "#{@serie}#{@folio}", size: 13, style: :bold
       end
   
     end

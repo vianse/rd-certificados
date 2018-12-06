@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Certificado:</strong>
+  <%= @descarga.certificado %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @descarga.email %>
+</p>
+
+<%= link_to 'Edit', edit_descarga_path(@descarga) %> |
+<%= link_to 'Back', descargas_path %>

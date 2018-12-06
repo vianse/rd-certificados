@@ -1,12 +1,132 @@
-<article class="mw6 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
+<script src="https://firebasestorage.googleapis.com/v0/b/certificados-fe53d.appspot.com/o/modernizr.custom.js?alt=media&token=ffbd4774-b0fa-451c-8c47-e7dbd1162413"></script>
+<script src="https://firebasestorage.googleapis.com/v0/b/certificados-fe53d.appspot.com/o/classie.js?alt=media&token=24cf6939-9dfa-4c2f-a389-b13679d79476"></script>
+<script src="https://firebasestorage.googleapis.com/v0/b/certificados-fe53d.appspot.com/o/notificationFx.js?alt=media&token=646b6c8f-f8b7-4e04-b3a1-62df30ff1789"></script>
+<link rel="stylesheet" type="text/css" href="https://firebasestorage.googleapis.com/v0/b/certificados-fe53d.appspot.com/o/ns-default.css?alt=media&token=73acdb96-f3a3-4560-b47a-8aecd6114646">
+<link rel="stylesheet" type="text/css" href="https://firebasestorage.googleapis.com/v0/b/certificados-fe53d.appspot.com/o/normalize.css?alt=media&token=cb386a2c-905c-4f56-a12f-0e3c41ce0022">
+<link rel="stylesheet" type="text/css" href="https://firebasestorage.googleapis.com/v0/b/certificados-fe53d.appspot.com/o/ns-style-growl.css?alt=media&token=e6582e93-3b7e-4c6d-b562-e68e720c9370">
+
+
+
+<style>
+    html{
+        height: 100%;
+        box-sizing: border-box;
+    }
+    body {
+        position: relative;
+        margin: 0;
+        padding-bottom: 6rem;
+        min-height: 100%;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+    header{
+        height:100px;
+        #background-color:#064189;
+    }
+    header>img{
+        position:absolute;
+        top:20px;
+        left: 40%;
+        right:50%;
+    }
+    footer{
+        height:130px;
+        background-color:#064189;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 1rem;
+    }
+    footer>.green{
+        height:20px;
+        width: 100%;
+        background-color:#67a654;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    footer>.subtitle{
+        color:white;
+        font-size:17px;
+        position:absolute;
+        top:50px;
+        font-weight:bold;
+    }
+    footer>.institute{
+        color:white;
+        font-size:14px;
+        position:absolute;
+        top:80px;
+    }
+    footer>nav{
+
+        right:80px;
+        color:white;
+      
+    }
+    #mensaje,#mensaje1{
+        background-color:#EC7063;
+        color:white;
+        font-weight:bold;
+        height:20px!important;
+        width:300px!important;
+    }
+
+    
+</style>
+<header>
+    <img src="https://firebasestorage.googleapis.com/v0/b/certificados-fe53d.appspot.com/o/logo.png?alt=media&token=81e90d97-f04c-4eae-bf96-54442c9b637f">
+</header>
+<article class="mw6 center bg-white br3 pa3 pa5-ns mv3 ba b--black-10">
 <h1>Iniciar Sesión</h1>
  <div class="tc">
     <form action="/login/validar" method="post">
-        <input type="text" name="email" placeholder="Ingresa tu email" class="input-reset ba b--black-20 pa2 mb2 db w-100">
-        <input type="text" name="grupo" placeholder="Ingresa tu número de grupo" class="input-reset ba b--black-20 pa2 mb2 db w-100">
-        <input type="submit" />
+        <span id="mensaje"></span>
+        <input type="text" name="email" placeholder="Ingresa tu email" class="input-reset ba b--black-20 pa2 mb2 db w-100" required>
+        <input type="text" name="grupo"  id="grupo" placeholder="Ingresa tu número de grupo" class="input-reset ba b--black-20 pa2 mb2 db w-100" required>
+        <input type="submit" id="enviar" class="f6 link dim br1 ph3 pv2 mb2 dib white bg-mid-gray"/>
+       
     </form>
 
  </div>
 </article>
+<footer>
+    <div class="green">
+    </div>
+    <div class="subtitle">Sólo para Profesionales de la Salud</div>
+    <div class="institute">2018 Nestle Nutrition Institute</div>
+    <nav class="db dt-l w-100 border-box pa4 ph5-l">
 
+        <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+            <a class="link dim white f6 f7-l dib mr3 mr3-l" href="https://www.nestlenutrition-institute.org/region/latam/general/aviso-de-privacidad" >Política de Privacidad</a>
+            <a class="link dim white f6 f7-l dib mr3 mr3-l" href="https://www.nestlenutrition-institute.org/region/latam/general/politica-de-cookies" >Política de Cookies</a>
+            <a class="link dim white f6 f7-l dib mr3 mr3-l" href="https://www.nestlenutrition-institute.org/region/latam/general/terminos-y-condiciones" >Términos y Condiciones</a>
+            <a class="link dim white f6 f7-l dib mr3 mr3-l" href="#" >Contáctenos</a>
+
+        </div>
+    </nav>
+    
+
+</footer>
+
+<script>
+
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+      
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+      
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+    };
+    var mensaje = getUrlParameter('mensaje');
+            $("#mensaje").text(mensaje);
+    
+</script>

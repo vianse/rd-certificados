@@ -34,7 +34,9 @@ class LoginController < ApplicationController
       cookies[:user_id] = params[:email]
       redirect_to "/inbox?token=" + encrypted_data
     else
-      redirect_to "/"
+      @mensaje = "El usuario no existe"
+      redirect_to "/?mensaje=" + @mensaje 
+      
       puts params[:email]
     end
   end

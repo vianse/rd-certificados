@@ -45,6 +45,7 @@
             <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Apellido</th>
             <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Email</th>
             <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Grupo</th>
+            <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Folio</th>
             <th colspan="3"></th>
           </tr>
         </thead>
@@ -56,6 +57,7 @@
               <td><%= usuario.lastName %></td>
               <td><%= usuario.email %></td>
               <td><%= usuario.groupId %></td>
+              <td><%= usuario.folio %></td>
               <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
               <td><%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>

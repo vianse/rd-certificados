@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :descargas
   resources :admins
   get 'inbox/index'
 
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
   resources :usuarios
   resources :groups
   get 'login/index'
-  root 'login#index'
+  root 'login#user'
 
   resources :usuarios do
     collection { post :import }

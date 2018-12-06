@@ -1,0 +1,27 @@
+<%= form_with(model: descarga, local: true) do |form| %>
+  <% if descarga.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(descarga.errors.count, "error") %> prohibited this descarga from being saved:</h2>
+
+      <ul>
+      <% descarga.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :certificado %>
+    <%= form.text_field :certificado, id: :descarga_certificado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :descarga_email %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

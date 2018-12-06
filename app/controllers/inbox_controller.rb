@@ -21,8 +21,18 @@ class InboxController < ApplicationController
       format.html
       format.pdf do
         d=Certificado.where(:grupoid => params[:grupo]).pluck(:descargas).first
-        u=Certificado.where(:grupoid => params[:grupo]).first
-        u.update(:descargas => d.to_i + 1)
+        @des= Descarga.where(:email=>cookies[:user_id]).where(:certificado=>params[:grupo]).first
+        if (@des)
+         
+        else
+          Descarga.create({
+            :certificado => params[:grupo],
+            :email=>cookies[:user_id]
+          })
+          u=Certificado.where(:grupoid => params[:grupo]).first
+          u.update(:descargas => d.to_i + 1)
+        end
+
         fileName = "Certificado-#{d}.pdf"
          pdf = ReportPdf.new(@certificado, @usuarios, :page_layout => :landscape)
          send_data pdf.render, filename: fileName, type: 'application/pdf'
