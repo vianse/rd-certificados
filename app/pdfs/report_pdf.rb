@@ -60,7 +60,7 @@ class ReportPdf < Prawn::Document
       end
 
       bounding_box([630, y_position4], :width => 370) do
-        text "#{@serie}#{@folio}", size: 13, style: :bold
+        text "#{@folio}", size: 13, style: :bold
       end
   
     end
