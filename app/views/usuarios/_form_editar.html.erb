@@ -43,7 +43,7 @@
     <%= form.hidden_field :folio, id: :usuario_folio,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
   </div>
   <div class="field">
-    <%= form.text_field :conteo, id: :usuario_conteo,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100", :value => @validacion.to_i + 1 %>
+    <%= form.hidden_field :conteo, id: :usuario_conteo,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100", :value => @validacion.to_i + 1 %>
   </div>
 
   <div class="actions">
