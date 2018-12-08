@@ -36,6 +36,21 @@ class UsuariosController < ApplicationController
   def edit
   end
 
+  def error
+    @usuario = Usuario.find(params[:id])
+  end
+
+  def editar
+    @validacion = Usuario.where(:id => params[:id]).pluck(:conteo).first
+    @validacions = Validacion.all.pluck(:numero).first
+    puts @validacion
+    if @validacion == @validacions
+      redirect_to "/error?id=" + params[:id]
+    else
+    @usuario = Usuario.find(params[:id])
+    end
+  end
+
   # POST /usuarios
   # POST /usuarios.json
   def create
@@ -55,15 +70,21 @@ class UsuariosController < ApplicationController
   # PATCH/PUT /usuarios/1
   # PATCH/PUT /usuarios/1.json
   def update
-    respond_to do |format|
-      if @usuario.update(usuario_params)
-        format.html { redirect_to "/usuarios", notice: 'Usuario was successfully updated.' }
-        format.json { render :show, status: :ok, location: @usuario }
-      else
-        format.html { render :edit }
-        format.json { render json: @usuario.errors, status: :unprocessable_entity }
-      end
-    end
+
+        respond_to do |format|
+          if @usuario.update(usuario_params)
+
+          
+              format.html { redirect_to "/usuarios", notice: 'Usuario was successfully updated.' }
+              format.json { render :show, status: :ok, location: @usuario }
+
+            
+          else
+            format.html { render :edit }
+            format.json { render json: @usuario.errors, status: :unprocessable_entity }
+          end
+        end
+
   end
 
   # DELETE /usuarios/1
@@ -84,6 +105,6 @@ class UsuariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def usuario_params
-      params.require(:usuario).permit(:title, :name, :lastName, :email, :groupId, :userId,:folio)
+      params.require(:usuario).permit(:title, :name, :lastName, :email, :groupId, :userId,:folio,:conteo)
     end
 end

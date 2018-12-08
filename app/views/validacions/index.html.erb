@@ -257,39 +257,35 @@ p {
   </div>
 </header>
 <section class="content">
-  <h1>Grupos</h1>
+  <h1>Validaciones</h1>
   <div class="ph1">
-    <%= link_to 'Nuevo grupo', new_group_path, :class=>"f6 link dim br2 ph3 pv2 mb2 dib white bg-green" %>
+   
   </div>
   <div class="pa2">
     <div class="overflow-auto">
-      <table class="f6 w-100 mw8 center" cellspacing="0">
-        <thead>
-          <tr>
-            <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Nombre</th>
-            <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Número</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-        <tbody>
-            <% @groups.each do |group| %>
-              <tr>
-                <td><%= group.name %></td>
-                <td><%= group.number %></td>
-                <td><%= link_to 'Editar', edit_group_path(group) %>
-                    <%= link_to group,  :method => :delete, :data => { :confirm => 'Are you sure?' }  do %>
-                    <span>Eliminar</span>
-                  <% end %>
-                </td>
-                <td>
-                    
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-      </table>
+    <table>
+    <thead>
+      <tr>
+        <th>Número máximo de ediciones</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @validacions.each do |validacion| %>
+        <tr>
+          <td><%= validacion.numero %></td>
+         
+          <td><%= link_to 'Editar', edit_validacion_path(validacion) %></td>
+         
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
     </div>
   </div>
   
   
 </section>
+
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181205204123) do
+ActiveRecord::Schema.define(version: 20181208221954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,13 @@ ActiveRecord::Schema.define(version: 20181205204123) do
     t.string "groupId"
     t.string "userId"
     t.string "folio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "conteo", default: "0"
+  end
+
+  create_table "validacions", force: :cascade do |t|
+    t.string "numero"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

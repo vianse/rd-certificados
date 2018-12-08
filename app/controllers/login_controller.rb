@@ -12,9 +12,12 @@ class LoginController < ApplicationController
   def admin
   end
   def user
-   
+    
     if cookies[:user_id]
-      redirect_to "/inbox?token=" + cookies[:user_id]
+      key = SecureRandom.random_bytes(32)
+      crypt = ActiveSupport::MessageEncryptor.new(key) 
+      encrypted_data = crypt.encrypt_and_sign(params[:email])
+      redirect_to "/inbox?token=" + encrypted_data
     else
 
     end

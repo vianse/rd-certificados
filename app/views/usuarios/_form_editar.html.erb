@@ -1,0 +1,57 @@
+
+
+<article class="mw6 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
+<h1>Usuarios</h1>
+ <div class="tc">
+ <%= form_with(model: usuario, local: true) do |form| %>
+  <% if usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+
+      <ul>
+      <% usuario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "Título" %>
+    <%= form.text_field :title, id: :usuario_title,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Nombre" %>
+    <%= form.text_field :name, id: :usuario_name,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Apellidos" %>
+    <%= form.text_field :lastName, id: :usuario_lastName,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :email, id: :usuario_email,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
+  </div>
+
+  <div class="field">
+
+    <%= form.hidden_field :groupId, id: :usuario_groupId,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
+  </div>
+  <div class="field">
+    <%= form.hidden_field :folio, id: :usuario_folio,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
+  </div>
+  <div class="field">
+    <%= form.hidden_field :conteo, id: :usuario_conteo,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100", :value => @validacion.to_i + 1 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Guardar", :class=>"f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-dark-green" %>
+  </div>
+<% end %>
+ </div>
+</article>
+
+
+

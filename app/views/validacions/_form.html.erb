@@ -1,0 +1,31 @@
+
+
+
+
+<article class="mw6 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
+<h1>Número de ediciones</h1>
+ <div class="tc">
+ <%= form_with(model: validacion, local: true) do |form| %>
+  <% if validacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(validacion.errors.count, "error") %> prohibited this validacion from being saved:</h2>
+
+      <ul>
+      <% validacion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "Ingresa el número de ediciones permitidas para que los usuarios modifiquen sus generales." %>
+    <%= form.text_field :numero, id: :validacion_numero,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Guardar", :class=>"f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-dark-green" %>
+  </div>
+<% end %>
+ </div>
+</article>
