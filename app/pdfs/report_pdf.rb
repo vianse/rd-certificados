@@ -59,7 +59,7 @@ class ReportPdf < Prawn::Document
         text "#{@texto}",  size: 15, style: :bold, :align => :center, :color =>  "003f81"
       end
 
-      bounding_box([610, y_position4], :width => 370) do
+      bounding_box([590, y_position4], :width => 370) do
         text "#{@folio}", size: 13, style: :bold
       end
   
