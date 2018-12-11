@@ -41,13 +41,16 @@ class UsuariosController < ApplicationController
   end
 
   def editar
-    @validacion = Usuario.where(:id => params[:id]).pluck(:conteo).first
+    @validacion = Usuario.where(:email=>cookies[:user_id]).where(:groupId => params[:grupo]).pluck(:conteo).first
     @validacions = Validacion.all.pluck(:numero).first
+    @idU1= Usuario.where(:email=>cookies[:user_id]).where(:groupId => params[:grupo]).pluck(:id).first
     puts @validacion
     if @validacion == @validacions
-      redirect_to "/error?id=" + params[:id]
+      redirect_to "/error?id=" + @idU1.to_s
     else
-    @usuario = Usuario.find(params[:id])
+    @idU= Usuario.where(:email=>cookies[:user_id]).where(:groupId => params[:grupo]).pluck(:id).first
+    puts @idU
+    @usuario = Usuario.find(@idU)
     end
   end
 

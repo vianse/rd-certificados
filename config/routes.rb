@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get 'login/user' => 'login#user', :as => 'login_user'
   get 'login/admin' => 'login#admin', :as => 'login_admin'
   get 'home/out' => 'home#out', :as => 'login_out'
-  get '/profile/:id' => 'usuarios#editar', :as => 'profile'
+  get '/profile' => 'usuarios#editar', :as => 'profile'
   get '/error' => 'usuarios#error', :as => 'error'
   get 'home/out_admin' => 'home#out_admin', :as => 'login_out_admin'
   post 'login/validar' => 'login#validar', :as => 'login_validar'
