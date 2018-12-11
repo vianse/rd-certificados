@@ -1,5 +1,17 @@
+<style>
+  a{
+    color:white!important;
 
-
+  }
+</style>
+<header class="tc ph4">
+  <h2 class="f5 f4-m f3-l fw2 black-50 mt0 lh-copy">
+    Sólo puedes hacer <%= @validacions %> modificaciones.
+  </h2>
+  <h3 class="f5 f4-m f3-l fw2 black-50 mt0 lh-copy">
+    y llevas <%= @validacion %> cambios realizados.
+  </h3>
+</header>
 <article class="mw6 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
 <h1>Usuarios</h1>
  <div class="tc">
@@ -48,6 +60,7 @@
 
   <div class="actions">
     <%= form.submit "Guardar", :class=>"f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-dark-green" %>
+    <a href="/" class="f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-dark-red">Cancelar</a>
   </div>
 <% end %>
  </div>

@@ -48,9 +48,9 @@ class ReportPdf < Prawn::Document
 
      
       
-      bounding_box([350, y_position1], :width => 270) do
-        text "A: ", size: 15
-      end
+      #bounding_box([350, y_position1], :width => 270) do
+       # text "A: ", size: 15
+      #end
 
       bounding_box([50, y_position2], :width => 620) do
         text "#{@title} #{@name} #{@lastname}", size: 30, style: :bold, :align => :center

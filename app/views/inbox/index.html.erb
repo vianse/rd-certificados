@@ -258,12 +258,22 @@
 </style>
 <html>
 <body>
+<% if flash[:notice] %>
+<div class="flex items-center justify-center pa4 bg-lightest-blue navy" id="alerta">
+  <svg class="w1" data-icon="info" viewBox="0 0 32 32" style="fill:currentcolor">
+    <title>info icon</title>
+    <path d="M16 0 A16 16 0 0 1 16 32 A16 16 0 0 1 16 0 M19 15 L13 15 L13 26 L19 26 z M16 6 A3 3 0 0 0 16 12 A3 3 0 0 0 16 6"></path>
+  </svg>
+  
+    <div class="notice"> <%= flash[:notice] %></div>
+  
+</div>
+<% end %>
 <header>
   <div class="hero">
     <article class="pa3 pa5-ns">
         <h1 class="f4 bold center mw6">Menú</h1>
         <ul class="list pl0 ml0 center mw6 ba b--light-silver br2">
-          <li class="ph3 pv3 bb b--light-silver"><a href="/profile/<%= @usuarioId %>">Mi Perfil</a></li>
           <li class="ph3 pv3 bb b--light-silver"><a href="/home/out">Salir</a></li>
         </ul>
       </article>
@@ -296,7 +306,7 @@
               <td><%= certificado.grupoid %></td>
              
               <td><a href="/inbox.pdf?grupo=<%=certificado.grupoid%>&token=<%=params[:token]%>" id="download"> Descargar</a></td>
-              <td></td>
+              <td><a href="/profile/<%= @usuarioId %>" id="editar"> Editar</a></td>
               <td></td>
             </tr>
           <% end %>
@@ -326,4 +336,8 @@
 </footer>
 </body>
 </html>
-
+<script>
+    setTimeout(function(){ 
+       $('#alerta').hide();
+    }, 3000);
+</script>

@@ -75,7 +75,7 @@ class UsuariosController < ApplicationController
           if @usuario.update(usuario_params)
 
           
-              format.html { redirect_to "/usuarios", notice: 'Usuario was successfully updated.' }
+              format.html { redirect_to "/usuarios", notice: 'Datos guardados satisfactoriamente.' }
               format.json { render :show, status: :ok, location: @usuario }
 
             
