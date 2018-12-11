@@ -24,7 +24,7 @@ class LoginController < ApplicationController
    
   end
   def validar
-    if Usuario.exists?(email: params[:email])
+    if Usuario.where(email: params[:email]).where(:groupId=>params[:grupo]).present?
       puts Usuario.exists?(email: params[:email])
       
       #crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
