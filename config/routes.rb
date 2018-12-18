@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     collection { post :import }
   end
 
-  get 'constancias' => 'inbox#index', :as => 'index'
+  get '/constancias' => 'inbox#index', :as => 'index'
   get 'login/user' => 'login#user', :as => 'login_user'
   get 'login/admin' => 'login#admin', :as => 'login_admin'
   get 'home/out' => 'home#out', :as => 'login_out'

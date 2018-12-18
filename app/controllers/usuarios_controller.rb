@@ -6,7 +6,7 @@ class UsuariosController < ApplicationController
   def index
     @usuarios = Usuario.all
     if cookies[:user_id]
-      redirect_to "/inbox?token=" + cookies[:user_id]
+      redirect_to "/constancias?token=" + cookies[:user_id]
     else
       if cookies[:admin_id]
         

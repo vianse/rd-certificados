@@ -4,7 +4,7 @@ class LoginController < ApplicationController
   def index
  
     if cookies[:user_id]
-      redirect_to "/inbox?token=" + cookies[:user_id]
+      redirect_to "/constancias?token=" + cookies[:user_id]
     else
 
     end
@@ -17,7 +17,7 @@ class LoginController < ApplicationController
       key = SecureRandom.random_bytes(32)
       crypt = ActiveSupport::MessageEncryptor.new(key) 
       encrypted_data = crypt.encrypt_and_sign(params[:email])
-      redirect_to "/inbox?token=" + encrypted_data
+      redirect_to "/constancias?token=" + encrypted_data
     else
 
     end
@@ -35,7 +35,7 @@ class LoginController < ApplicationController
       crypt = ActiveSupport::MessageEncryptor.new(key) 
       encrypted_data = crypt.encrypt_and_sign(params[:email])
       cookies[:user_id] = params[:email]
-      redirect_to "/inbox?token=" + encrypted_data
+      redirect_to "/constancias?token=" + encrypted_data
     else
       @mensaje = "El usuario no existe"
       redirect_to "/?mensaje=" + @mensaje 
