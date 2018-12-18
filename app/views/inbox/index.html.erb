@@ -305,7 +305,7 @@
               <td><%= certificado.texto %></td>
               <td><%= certificado.grupoid %></td>
              
-              <td><a href="/inbox.pdf?grupo=<%=certificado.grupoid%>&token=<%=params[:token]%>" id="download"> Descargar</a></td>
+              <td><a href="/constancias.pdf?grupo=<%=certificado.grupoid%>&token=<%=params[:token]%>" id="download"> Descargar</a></td>
               <td><a href="/profile?token=<%=params[:token]%>&grupo=<%= certificado.grupoid %>" id="editar"> Editar</a></td>
               <td></td>
             </tr>
