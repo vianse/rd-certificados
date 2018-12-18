@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
 
   get '/constancias' => 'inbox#index', :as => 'index'
+  get '/inbox' => 'inbox#index', :as => 'index_inbox'
   get 'login/user' => 'login#user', :as => 'login_user'
   get 'login/admin' => 'login#admin', :as => 'login_admin'
   get 'home/out' => 'home#out', :as => 'login_out'
