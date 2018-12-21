@@ -13,24 +13,24 @@ class InboxController < ApplicationController
    #crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
    #decrypted_back = crypt.decrypt_and_verify(params[:token])
     #puts "hola#{decrypted_back}"
-    @groupId = Usuario.where(:email=>cookies[:user_id]).where(:groupId=>params[:grupo]).pluck(:id).first
+    @groupId = Usuario.where(:email=>cookies[:user_id].downcase).where(:groupId=>params[:grupo]).pluck(:id).first
 
-    @usuarioId = Usuario.where(:email=>cookies[:user_id]).pluck(:id).first
-    @usuarios = Usuario.where(:groupId => params[:grupo]).where(:email=>cookies[:user_id])
-    @usuario = Usuario.where(:email=>cookies[:user_id]).pluck(:groupId)
+    @usuarioId = Usuario.where(:email=>cookies[:user_id].downcase).pluck(:id).first
+    @usuarios = Usuario.where(:groupId => params[:grupo]).where(:email=>cookies[:user_id].downcase)
+    @usuario = Usuario.where(:email=>cookies[:user_id].downcase).pluck(:groupId)
     @certificados = Certificado.where(:grupoid => [@usuario])
     @certificado = Certificado.where(:grupoid => params[:grupo])
     respond_to do |format|
       format.html
       format.pdf do
         d=Certificado.where(:grupoid => params[:grupo]).pluck(:descargas).first
-        @des= Descarga.where(:email=>cookies[:user_id]).where(:certificado=>params[:grupo]).first
+        @des= Descarga.where(:email=>cookies[:user_id].downcase).where(:certificado=>params[:grupo]).first
         if (@des)
          
         else
           Descarga.create({
             :certificado => params[:grupo],
-            :email=>cookies[:user_id]
+            :email=>cookies[:user_id].downcase
           })
           u=Certificado.where(:grupoid => params[:grupo]).first
           u.update(:descargas => d.to_i + 1)
