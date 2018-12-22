@@ -25,7 +25,7 @@ class LoginController < ApplicationController
   end
   def validar
     if Usuario.where(:email.downcase => params[:email].downcase).where(:groupId=>params[:grupo]).present?
-      puts Usuario.exists?(email: params[:email])
+      puts Usuario.exists?(email: params[:email].downcase)
       
       #crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
       #cipher = OpenSSL::Cipher.new('DES-EDE3-CBC').encrypt
@@ -33,8 +33,8 @@ class LoginController < ApplicationController
       #encrypted_data = Digest::SHA1.hexdigest params[:email]
       key = SecureRandom.random_bytes(32)
       crypt = ActiveSupport::MessageEncryptor.new(key) 
-      encrypted_data = crypt.encrypt_and_sign(params[:email])
-      cookies[:user_id] = params[:email]
+      encrypted_data = crypt.encrypt_and_sign(params[:email].downcase)
+      cookies[:user_id.downcase] = params[:email].downcase
       redirect_to "/inbox?token=" + encrypted_data
     else
       @mensaje = "El usuario no existe"
