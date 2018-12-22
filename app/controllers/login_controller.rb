@@ -24,7 +24,8 @@ class LoginController < ApplicationController
    
   end
   def validar
-    if Usuario.where(:email.downcase => params[:email].downcase).where(:groupId=>params[:grupo]).present?
+    job_query = "%#{params[:email].downcase}%"
+    if Usuario.where('email ilike ?', job_query).where(:groupId=>params[:grupo]).present?
       puts Usuario.exists?(email: params[:email].downcase)
       
       #crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)

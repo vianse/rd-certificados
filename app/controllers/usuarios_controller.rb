@@ -41,14 +41,15 @@ class UsuariosController < ApplicationController
   end
 
   def editar
-    @validacion = Usuario.where(:email=>cookies[:user_id].downcase).where(:groupId => params[:grupo]).pluck(:conteo).first
+    job_query = "%#{cookies[:user_id].downcase}%"
+    @validacion = Usuario.where('email ilike ?', job_query).where(:groupId => params[:grupo]).pluck(:conteo).first
     @validacions = Validacion.all.pluck(:numero).first
-    @idU1= Usuario.where(:email=>cookies[:user_id].downcase).where(:groupId => params[:grupo]).pluck(:id).first
+    @idU1= Usuario.where('email ilike ?', job_query).where(:groupId => params[:grupo]).pluck(:id).first
     puts @validacion
     if @validacion == @validacions
       redirect_to "/error?id=" + @idU1.to_s
     else
-    @idU= Usuario.where(:email=>cookies[:user_id].downcase).where(:groupId => params[:grupo]).pluck(:id).first
+    @idU= Usuario.where('email ilike ?', job_query).where(:groupId => params[:grupo]).pluck(:id).first
     puts @idU
     @usuario = Usuario.find(@idU)
     end
