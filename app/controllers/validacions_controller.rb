@@ -4,6 +4,11 @@ class ValidacionsController < ApplicationController
   # GET /validacions
   # GET /validacions.json
   def index
+    if cookies[:admin_id]
+        
+    else
+      redirect_to "/"
+    end
     @validacions = Validacion.all
   end
 

@@ -4,6 +4,11 @@ class AdminsController < ApplicationController
   # GET /admins
   # GET /admins.json
   def index
+    if cookies[:admin_id]
+        
+    else
+      redirect_to "/"
+    end
     @admins = Admin.all
   end
 

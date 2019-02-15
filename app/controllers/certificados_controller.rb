@@ -8,6 +8,11 @@ class CertificadosController < ApplicationController
   # GET /certificados
   # GET /certificados.json
   def index
+    if cookies[:admin_id]
+        
+    else
+      redirect_to "/"
+    end
     if cookies[:user_id]
       redirect_to "/inbox?token=" + cookies[:user_id]
     else
