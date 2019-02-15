@@ -50,6 +50,11 @@ class CertificadosController < ApplicationController
 
   # GET /certificados/1/edit
   def edit
+    if cookies[:admin_id]
+        
+    else
+      redirect_to "/"
+    end
   end
 
   # POST /certificados

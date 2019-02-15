@@ -34,6 +34,11 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios/1/edit
   def edit
+    if cookies[:admin_id]
+        
+    else
+      redirect_to "/"
+    end
   end
 
   def error

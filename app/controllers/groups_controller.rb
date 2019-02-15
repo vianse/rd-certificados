@@ -19,6 +19,11 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
+    if cookies[:admin_id]
+        
+    else
+      redirect_to "/"
+    end
   end
 
   # POST /groups
