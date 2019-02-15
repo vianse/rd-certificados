@@ -36,11 +36,13 @@ class CertificadosController < ApplicationController
   # GET /certificados/1
   # GET /certificados/1.json
   def show
+    if cookies[:admin_id]
+        
+    else
+      redirect_to "/"
+    end
     @certificados = Certificado.all
 
-    
- 
-   
   end
 
   # GET /certificados/new
