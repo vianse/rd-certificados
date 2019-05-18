@@ -107,6 +107,6 @@ class CertificadosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def certificado_params
-      params.require(:certificado).permit(:imagen, :nombre, :texto, :grupoid, :serie, :estado, :descargas)
+      params.require(:certificado).permit(:imagen, :nombre, :texto, :grupoid, :serie, :estado, :descargas,:template)
     end
 end

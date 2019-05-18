@@ -23,6 +23,8 @@ gem 'wkhtmltopdf-binary'
 gem 'prawn'
 gem 'prawn-table'
 
+gem 'rb-readline'
+
 gem 'wicked_pdf', '~> 1.1'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes

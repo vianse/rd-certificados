@@ -21,6 +21,7 @@ class InboxController < ApplicationController
     @usuario = Usuario.where('email ilike ?', job_query).pluck(:groupId)
     @certificados = Certificado.where(:grupoid => [@usuario])
     @certificado = Certificado.where(:grupoid => params[:grupo])
+    @certificadoTemplate = Certificado.where(:grupoid => params[:grupo]).pluck(:template).first
     respond_to do |format|
       format.html
       format.pdf do
@@ -38,7 +39,13 @@ class InboxController < ApplicationController
         end
 
         fileName = "Certificado-#{d}.pdf"
+        if (@certificadoTemplate == "1")
          pdf = ReportPdf.new(@certificado, @usuarios, :page_layout => :landscape)
+        end
+        if (@certificadoTemplate == "2")
+          pdf = ReportAPdf.new(@certificado, @usuarios, :page_layout => :portrait)
+        end
+
          send_data pdf.render, filename: fileName, type: 'application/pdf'
         
       end
