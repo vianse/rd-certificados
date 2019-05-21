@@ -38,6 +38,7 @@
               
               <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Nombre</th>
               <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Texto</th>
+              <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Template</th>
               <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Grupo</th>
               <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Serie</th>
               <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Estado</th>
@@ -51,6 +52,12 @@
               
               <td><%= certificado.nombre %></td>
               <td><%= certificado.texto %></td>
+              <% if certificado.template=="1" %>
+              <td>Template 1</td>
+              <% end %>
+              <% if certificado.template=="2" %>
+              <td>Template 2</td>
+              <% end %>
               <td><%= certificado.grupoid %></td>
               <td><%= certificado.serie %></td>
               <td><%= certificado.estado %></td>

@@ -19,7 +19,7 @@ class InboxController < ApplicationController
     @usuarioId = Usuario.where('email ilike ?', job_query).pluck(:id).first
     @usuarios = Usuario.where(:groupId => params[:grupo]).where('email ilike ?', job_query)
     @usuario = Usuario.where('email ilike ?', job_query).pluck(:groupId)
-    @certificados = Certificado.where(:grupoid => [@usuario])
+    @certificados = Certificado.where(:grupoid => [@usuario]).where(:estado => "Activo")
     @certificado = Certificado.where(:grupoid => params[:grupo])
     @certificadoTemplate = Certificado.where(:grupoid => params[:grupo]).pluck(:template).first
     respond_to do |format|

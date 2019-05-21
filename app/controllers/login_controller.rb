@@ -25,7 +25,10 @@ class LoginController < ApplicationController
   end
   def validar
     job_query = "%#{params[:email].downcase}%"
-    if Usuario.where('email ilike ?', job_query).where(:groupId=>params[:grupo]).present?
+  # grupoId =  Usuario.where('email ilike ?', job_query).where(:groupId=>params[:grupo]).first.pluck(:grupoId)
+    certificado = Certificado.where(:grupoid => params[:grupo]).where(:estado => "Activo").pluck(:grupoid)
+   # if Usuario.where('email ilike ?', job_query).where(:groupId=>params[:grupo]).present?
+   if Usuario.where('email ilike ?', job_query).where(:groupId=>certificado).present?
       puts Usuario.exists?(email: params[:email].downcase)
       
       #crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
