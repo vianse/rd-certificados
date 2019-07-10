@@ -1,7 +1,7 @@
 class ReportBPdf < Prawn::Document
     require "open-uri"
       def initialize(certificado, usuarios,layout)
-        super(:page_layout => :landscape)
+        super(:page_layout => :landscape, :page_size => "LEGAL")
         @certificado = certificado
         @name = usuarios[0].name
         @title = usuarios[0].title
@@ -14,6 +14,7 @@ class ReportBPdf < Prawn::Document
         text_content
         table_content
         layout
+  
         
       end
     
@@ -32,7 +33,7 @@ class ReportBPdf < Prawn::Document
         y_position5 = cursor - 550
   
         #indent 0, 0 do
-          image open(@fondo),:width =>700, :height => 520
+          image open(@fondo),:width =>940, :height => 520
         #end
         #image ::Rails.root.join('public','images','Certificado.png'),:width =>555, :height => 720
         #image open(@fondo),:width =>600, :height => 720, :size => "a4"
@@ -52,15 +53,15 @@ class ReportBPdf < Prawn::Document
          # text "A: ", size: 15
         #end
   
-        bounding_box([50, y_position2], :width => 620) do
+        bounding_box([0, y_position2], :width => 940) do
           text "#{@title} #{@name} #{@lastname}", size: 30, style: :bold, :align => :center
         end
         # bounding_box([50, y_position3], :width => 620) do
         #   text "#{@texto}",  size: 15, style: :bold, :align => :center, :color =>  "003f81"
         # end
   
-        bounding_box([300, y_position4], :width => 370) do
-          text "#{@folio}", size: 13, style: :bold
+        bounding_box([0, y_position4], :width => 940) do
+          text "#{@folio}", style: :bold, :align => :center
         end
     
       end

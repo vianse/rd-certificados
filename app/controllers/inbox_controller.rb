@@ -46,7 +46,7 @@ class InboxController < ApplicationController
           pdf = ReportAPdf.new(@certificado, @usuarios, :page_layout => :portrait)
         end
         if (@certificadoTemplate == "3")
-          pdf = ReportBPdf.new(@certificado, @usuarios, :page_layout => :portrait)
+          pdf = ReportBPdf.new(@certificado, @usuarios,:page_size => "LEGAL", :page_layout => :landscape)
         end
 
          send_data pdf.render, filename: fileName, type: 'application/pdf'
