@@ -15,6 +15,11 @@ class AdminsController < ApplicationController
   # GET /admins/1
   # GET /admins/1.json
   def show
+    if cookies[:admin_id]
+        
+    else
+      redirect_to "/"
+    end
   end
 
   # GET /admins/new
