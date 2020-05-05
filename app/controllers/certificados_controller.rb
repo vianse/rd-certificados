@@ -47,7 +47,12 @@ class CertificadosController < ApplicationController
 
   # GET /certificados/new
   def new
-    @certificado = Certificado.new
+    if cookies[:admin_id]
+      @certificado = Certificado.new
+    else
+      redirect_to "/"
+    end
+    
   end
 
   # GET /certificados/1/edit

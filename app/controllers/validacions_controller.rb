@@ -15,11 +15,21 @@ class ValidacionsController < ApplicationController
   # GET /validacions/1
   # GET /validacions/1.json
   def show
+    if cookies[:admin_id]
+        
+    else
+      redirect_to "/"
+    end
   end
 
   # GET /validacions/new
   def new
-    @validacion = Validacion.new
+    if cookies[:admin_id]
+      @validacion = Validacion.new
+    else
+      redirect_to "/"
+    end
+    
   end
 
   # GET /validacions/1/edit

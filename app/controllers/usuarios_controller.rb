@@ -29,7 +29,12 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios/new
   def new
-    @usuario = Usuario.new
+    if cookies[:admin_id]
+      @usuario = Usuario.new
+    else
+      redirect_to "/"
+    end
+    
   end
 
   # GET /usuarios/1/edit

@@ -24,7 +24,12 @@ class AdminsController < ApplicationController
 
   # GET /admins/new
   def new
-    @admin = Admin.new
+    if cookies[:admin_id]
+      @admin = Admin.new
+    else
+      redirect_to "/"
+    end
+    
   end
 
   # GET /admins/1/edit
