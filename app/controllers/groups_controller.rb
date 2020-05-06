@@ -4,17 +4,32 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all
+    if cookies[:admin_id]
+      @groups = Group.all
+    else
+      redirect_to "/"
+    end
+   
   end
 
   # GET /groups/1
   # GET /groups/1.json
   def show
+    if cookies[:admin_id]
+      
+    else
+      redirect_to "/"
+    end
   end
 
   # GET /groups/new
   def new
-    @group = Group.new
+    if cookies[:admin_id]
+      @group = Group.new
+    else
+      redirect_to "/"
+    end
+   
   end
 
   # GET /groups/1/edit

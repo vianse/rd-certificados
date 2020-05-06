@@ -25,6 +25,11 @@ class UsuariosController < ApplicationController
   # GET /usuarios/1
   # GET /usuarios/1.json
   def show
+    if cookies[:admin_id]
+     
+    else
+      redirect_to "/"
+    end
   end
 
   # GET /usuarios/new
