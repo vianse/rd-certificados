@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
 
   get '/constancias' => 'login#validar', :as => 'constancias'
+  get '/settings' => 'validacions#index', :as => 'settings'
   get '/inbox' => 'inbox#index', :as => 'index_inbox'
   get 'login/user' => 'login#user', :as => 'login_user'
   get 'login/admin' => 'login#admin', :as => 'login_admin'

@@ -21,7 +21,7 @@
     }
     header{
         height:100px;
-        #background-color:#064189;
+        #background-color:#5D7DE1;
     }
     header>img{
         position:absolute;
@@ -31,7 +31,7 @@
     }
     footer{
         height:130px;
-        background-color:#064189;
+        background-color:#5D7DE1;
         position: absolute;
         right: 0;
         bottom: 0;
@@ -41,7 +41,7 @@
     footer>.green{
         height:20px;
         width: 100%;
-        background-color:#67a654;
+        background-color:#33CC66;
         position: absolute;
         left: 0;
         top: 0;
@@ -66,18 +66,21 @@
       
     }
     #mensaje,#mensaje1{
+        text-align: center;
+        margin: auto;
         background-color:#EC7063;
         color:white;
         font-weight:bold;
-        height:20px!important;
+        margin-bottom: 10px;
         width:300px!important;
+        padding: 10px;
     }
     @media only screen and (max-width: 400px) {
      
         footer{
        
             height:210px!important;
-            background-color:#064189;
+            background-color:#5D7DE1;
             position: absolute;
             right: 0;
             bottom: 0;
@@ -117,7 +120,7 @@
     @media only screen and (max-width: 600px) {
         footer{
             height:200px;
-            background-color:#064189;
+            background-color:#5D7DE1;
             position: fixed;
             right: 0;
             bottom: 0;
@@ -156,7 +159,7 @@
     @media only screen and (max-width: 760px) {
         footer{
             height:200px;
-            background-color:#064189;
+            background-color:#5D7DE1;
             position: absolute;
             right: 0;
             bottom: 0;
@@ -189,7 +192,7 @@
     @media only screen and (max-width: 1060px) {
         footer{
             height:180px;
-            background-color:#064189;
+            background-color:#5D7DE1;
             position: absolute;
             right: 0;
             bottom: 0;
@@ -224,9 +227,17 @@
             right:50%;
         }
     }
+
+    body {
+  overflow-y: hidden;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+}
 </style>
 <header>
-    <img src="https://firebasestorage.googleapis.com/v0/b/certificados-fe53d.appspot.com/o/logo.png?alt=media&token=81e90d97-f04c-4eae-bf96-54442c9b637f">
+    <img src="https://firebasestorage.googleapis.com/v0/b/certificados-fe53d.appspot.com/o/Logo-new.png?alt=media&token=7442f113-0ff8-4e68-9bfd-05618d7c6b27" width="300px">
 </header>
 <article class="mw6 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
 <p>Ingrese por favor el correo que registró en el evento y la clave del grupo que se le asignó para poder descargar su constancia de participación. Cualquier duda escríbanos a soporte@nniacademy.com</p>
@@ -234,9 +245,9 @@
 <h1>Iniciar Sesión</h1>
  <div class="tc">
     <form action="/login/validar" method="post">
-        <span id="mensaje"></span>
-        <input type="text" name="email" placeholder="Ingresa tu email" class="input-reset ba b--black-20 pa2 mb2 db w-100" required>
-        <input type="text" name="grupo"  id="grupo" placeholder="Ingresa tu clave de grupo" class="input-reset ba b--black-20 pa2 mb2 db w-100" required>
+        <div id="mensaje"></div>
+        <input type="text" name="email" placeholder="Ingrese su email" class="input-reset ba b--black-20 pa2 mb2 db w-100" required>
+        <input type="text" name="grupo"  id="grupo" placeholder="Ingrese su clave de grupo" class="input-reset ba b--black-20 pa2 mb2 db w-100" required>
         <input type="submit" id="enviar" class="f6 link dim br1 ph3 pv2 mb2 dib white bg-mid-gray"/>
        
     </form>
@@ -247,7 +258,7 @@
     <div class="green">
     </div>
     <div class="subtitle">Sólo para Profesionales de la Salud</div>
-    <div class="institute">2018 Nestlé Nutrition Institute</div>
+    <div class="institute"> Nestlé Nutrition Institute</div>
     <nav class="db dt-l w-100 border-box pa4 ph5-l">
 
         <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
@@ -279,6 +290,11 @@
             }
     };
     var mensaje = getUrlParameter('mensaje');
-            $("#mensaje").text(mensaje);
+            if(mensaje){
+                $("#mensaje").text(mensaje);
+            }else{
+                $("#mensaje").css("display", "none");
+            }
+            
     
 </script>

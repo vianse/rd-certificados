@@ -27,7 +27,6 @@ class ReportAPdf < Prawn::Document
         y_position = cursor - 150
         y_position1 = cursor - 200
         y_position2 = cursor - 215
-       
         y_position3 = cursor - 340
         y_position4 = cursor - 630
         y_position5 = cursor - 550
