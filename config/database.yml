@@ -24,13 +24,23 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-development:
-  <<: *default
-  database: rd-certificados
-  username: reaccion_digital
-  password: 'hola123,'
+# development:
+#   <<: *default
+#   database: rd-certificados
+#   username: reaccion_digital
+#   password: 'hola123,'
 
-  
+  pruebas:
+    <<: *default
+      host: ec2-54-88-130-244.compute-1.amazonaws.com
+      database: d69cq3tasimtdn
+      #username: RD_Certificados
+      #password: <%= ENV['RD_CERTIFICADOS_DATABASE_PASSWORD'] %>
+      username: vattpqclnybbwn
+      port: 5432
+      password: eec1121612e376381640309d595f184b174fde8ef715065498eb79356063ffc9
+
+
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -61,9 +71,11 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: RD_Certificados_test
+
+
+# test:
+#   <<: *default
+#   database: RD_Certificados_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

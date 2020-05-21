@@ -195,6 +195,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  actionview
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
