@@ -30,15 +30,15 @@ default: &default
 #   username: reaccion_digital
 #   password: 'hola123,'
 
-  pruebas:
-    <<: *default
-      host: ec2-54-88-130-244.compute-1.amazonaws.com
-      database: d69cq3tasimtdn
+pruebas:
+  <<: *default
+  host: ec2-54-88-130-244.compute-1.amazonaws.com
+  database: d69cq3tasimtdn
       #username: RD_Certificados
       #password: <%= ENV['RD_CERTIFICADOS_DATABASE_PASSWORD'] %>
-      username: vattpqclnybbwn
-      port: 5432
-      password: eec1121612e376381640309d595f184b174fde8ef715065498eb79356063ffc9
+  username: vattpqclnybbwn
+  port: 5432
+  password: eec1121612e376381640309d595f184b174fde8ef715065498eb79356063ffc9
 
 
   # The specified database role being used to connect to postgres.
