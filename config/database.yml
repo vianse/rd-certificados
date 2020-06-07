@@ -98,13 +98,13 @@ pruebas:
 #
 
 
-# production:
-#   <<: *default
-#   #database: RD_Certificados_production
-#   #username: RD_Certificados
-#   #password: <%= ENV['RD_CERTIFICADOS_DATABASE_PASSWORD'] %>
-#   database: dfb7i9ao6f5ise
-#   username: xkiemsqcovsxyp
-#   port: 5432
-#   password: a5d8f735a808db2d7319be90cfb6099271d0199b2775394b2251dbc93318354e
+production:
+  <<: *default
+  #database: RD_Certificados_production
+  #username: RD_Certificados
+  #password: <%= ENV['RD_CERTIFICADOS_DATABASE_PASSWORD'] %>
+  database: dfb7i9ao6f5ise
+  username: xkiemsqcovsxyp
+  port: 5432
+  password: a5d8f735a808db2d7319be90cfb6099271d0199b2775394b2251dbc93318354e
 
