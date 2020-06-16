@@ -19,6 +19,6 @@ module RDCertificados
     # -- all .rb files in that directory are automatically loaded.
 
     #config.force_ssl = false
-    config.force_ssl = true
+   config.force_ssl = true
   end
 end
