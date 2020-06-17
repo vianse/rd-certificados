@@ -11,13 +11,15 @@
     html{
         height: 100%;
         box-sizing: border-box;
+        
     }
     body {
         position: relative;
         margin: 0;
        # padding-bottom: 6rem;
-        min-height: 100%;
+        #min-height: 100%;
         font-family: "Helvetica Neue", Arial, sans-serif;
+        overflow-y: auto!important;
     }
     header{
         height:100px;
@@ -32,10 +34,11 @@
     footer{
         height:130px;
         background-color:#5D7DE1;
-        position: absolute;
+        position: fixed;
         right: 0;
         bottom: 0;
         left: 0;
+        top:80%;
         padding: 1rem;
     }
     footer>.green{
@@ -75,16 +78,22 @@
         width:300px!important;
         padding: 10px;
     }
+    @media only screen and (max-height: 600px) {
+        body {
+        height: 600px;
+    }
+    }
     @media only screen and (max-width: 400px) {
      
         footer{
        
             height:210px!important;
             background-color:#5D7DE1;
-            position: absolute;
+            position: fixed;
             right: 0;
             bottom: 0;
             left: 0;
+            top:80%;
             
         }
         footer>.subtitle{
@@ -119,6 +128,46 @@
     }
     @media only screen and (max-width: 600px) {
         footer{
+            height:300px;
+            background-color:#5D7DE1;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 1rem;
+            top:100%;
+      }
+        footer>.subtitle{
+            color:white;
+            font-size:17px;
+            position:absolute;
+            top:50px;
+            font-weight:bold;
+        }
+        footer>.institute{
+            color:white;
+            font-size:14px;
+            position:absolute;
+            top:80px;
+        }
+        footer>nav{
+            position:absolute;
+            left:0;
+            top:40%;
+            right:80px;
+            color:white;
+      
+         }
+      
+         header>img{
+            position:absolute;
+            top:20px;
+            left: 30%!important;
+            width:50%!important;
+        }
+    }
+    @media only screen and (max-width: 760px) {
+        footer{
             height:200px;
             background-color:#5D7DE1;
             position: fixed;
@@ -149,55 +198,18 @@
             color:white;
       
          }
-         header>img{
-            position:absolute;
-            top:20px;
-            left: 30%!important;
-            width:50%!important;
-        }
-    }
-    @media only screen and (max-width: 760px) {
-        footer{
-            height:200px;
-            background-color:#5D7DE1;
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            padding: 1rem;
-        }
-        footer>.subtitle{
-            color:white;
-            font-size:17px;
-            position:absolute;
-            top:50px;
-            font-weight:bold;
-        }
-        footer>.institute{
-            color:white;
-            font-size:14px;
-            position:absolute;
-            top:80px;
-        }
-        footer>nav{
-            position:absolute;
-            left:0;
-            top:40%;
-            right:80px;
-            color:white;
-      
-         }
          
     }
     @media only screen and (max-width: 1060px) {
         footer{
             height:180px;
             background-color:#5D7DE1;
-            position: absolute;
+            position: fixed;
             right: 0;
             bottom: 0;
             left: 0;
             padding: 1rem;
+            top:70%;
         }
         footer>.subtitle{
             color:white;
@@ -229,7 +241,7 @@
     }
 
     body {
-  overflow-y: hidden;
+        overflow-y: auto!important;
   -webkit-transition: all .3s;
   -moz-transition: all .3s;
   -ms-transition: all .3s;
