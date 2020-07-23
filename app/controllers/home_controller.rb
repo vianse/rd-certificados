@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     if cookies[:admin_id]
-        
+   
     else
       redirect_to "/"
     end

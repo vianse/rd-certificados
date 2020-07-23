@@ -5,8 +5,6 @@ class CertificadosController < ApplicationController
   require 'prawn/table'
   require "open-uri"
 
-  # GET /certificados
-  # GET /certificados.json
   def index
     if cookies[:admin_id]
         
@@ -32,9 +30,6 @@ class CertificadosController < ApplicationController
     end
   end
 
-
-  # GET /certificados/1
-  # GET /certificados/1.json
   def show
     if cookies[:admin_id]
         
@@ -45,7 +40,7 @@ class CertificadosController < ApplicationController
 
   end
 
-  # GET /certificados/new
+ 
   def new
     if cookies[:admin_id]
       @certificado = Certificado.new
@@ -55,7 +50,6 @@ class CertificadosController < ApplicationController
     
   end
 
-  # GET /certificados/1/edit
   def edit
     if cookies[:admin_id]
         
@@ -64,8 +58,6 @@ class CertificadosController < ApplicationController
     end
   end
 
-  # POST /certificados
-  # POST /certificados.json
   def create
     @certificado = Certificado.new(certificado_params)
 
@@ -80,8 +72,7 @@ class CertificadosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /certificados/1
-  # PATCH/PUT /certificados/1.json
+ 
   def update
     respond_to do |format|
       if @certificado.update(certificado_params)
@@ -94,8 +85,6 @@ class CertificadosController < ApplicationController
     end
   end
 
-  # DELETE /certificados/1
-  # DELETE /certificados/1.json
   def destroy
     @certificado.destroy
     respond_to do |format|
@@ -105,12 +94,12 @@ class CertificadosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+  
     def set_certificado
       @certificado = Certificado.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+
     def certificado_params
       params.require(:certificado).permit(:imagen, :nombre, :texto, :grupoid, :serie, :estado, :descargas,:template)
     end

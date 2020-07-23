@@ -1,343 +1,384 @@
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:300|Raleway:200,900|Over+the+Rainbow' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300|Raleway:200,900|Over+the+Rainbow' rel='stylesheet'
+    type='text/css'>
 <meta name="viewport" content="width=device-width, user-scalable=no">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.3.1/velocity.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+<link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
 <script>
-    $('.hamb-wrap').on('click', function(){
-      $(this).parent().children('p').toggle();
-      $(this).children().toggleClass('active');
-      $('nav').fadeToggle(200);
-    }) 
+    $('.hamb-wrap').on('click', function () {
+        $(this).parent().children('p').toggle();
+        $(this).children().toggleClass('active');
+        $('nav').fadeToggle(200);
+    })
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
             sURLVariables = sPageURL.split('&'),
             sParameterName,
             i;
-      
+
         for (i = 0; i < sURLVariables.length; i++) {
             sParameterName = sURLVariables[i].split('=');
-      
+
             if (sParameterName[0] === sParam) {
                 return sParameterName[1] === undefined ? true : sParameterName[1];
-                }
             }
+        }
     };
     var token = getUrlParameter('token');
-   
+
 
 </script>
 <style>
-    html{
+    html {
         height: 100%;
         box-sizing: border-box;
     }
+
     body {
         position: relative;
         margin: 0;
-       # padding-bottom: 6rem;
+        # padding-bottom: 6rem;
         min-height: 100%;
         font-family: "Helvetica Neue", Arial, sans-serif;
     }
 
-    footer{
-        height:130px;
-        background-color:#5D7DE1;
+    footer {
+        height: 130px;
+        background-color: #5D7DE1;
         position: fixed;
         right: 0;
         bottom: 0;
         left: 0;
-        top:80%;
+        top: 80%;
         padding: 1rem;
     }
-    footer>.green{
-        height:20px;
+
+    footer>.green {
+        height: 20px;
         width: 100%;
-        background-color:#33CC66;
+        background-color: #33CC66;
         position: absolute;
         left: 0;
         top: 0;
     }
-    footer>.subtitle{
-        color:white;
-        font-size:17px;
-        position:absolute;
-        top:50px;
-        font-weight:bold;
-    }
-    footer>.institute{
-        color:white;
-        font-size:14px;
-        position:absolute;
-        top:80px;
-    }
-    footer>nav{
 
-        right:80px;
-        color:white;
-      
+    footer>.subtitle {
+        color: white;
+        font-size: 17px;
+        position: absolute;
+        top: 50px;
+        font-weight: bold;
     }
-    #mensaje,#mensaje1{
-        background-color:#EC7063;
-        color:white;
-        font-weight:bold;
-        height:20px!important;
-        width:300px!important;
+
+    footer>.institute {
+        color: white;
+        font-size: 14px;
+        position: absolute;
+        top: 80px;
     }
+
+    footer>nav {
+
+        right: 80px;
+        color: white;
+
+    }
+
+    #mensaje,
+    #mensaje1 {
+        background-color: #EC7063;
+        color: white;
+        font-weight: bold;
+        height: 20px !important;
+        width: 300px !important;
+    }
+
     @media only screen and (max-width: 400px) {
-     
-        footer{
-       
-            height:210px!important;
-            background-color:#5D7DE1;
+
+        footer {
+
+            height: 210px !important;
+            background-color: #5D7DE1;
             position: fixed;
             right: 0;
             bottom: 0;
             left: 0;
-            top:80%;
-            
+            top: 80%;
+
         }
-        footer>.subtitle{
-            color:white;
-            font-size:17px;
-            position:absolute;
-            top:60px!important;
-            font-weight:bold;
+
+        footer>.subtitle {
+            color: white;
+            font-size: 17px;
+            position: absolute;
+            top: 60px !important;
+            font-weight: bold;
         }
-        footer>.institute{
-            color:white;
-            font-size:14px;
-            position:absolute;
-            top:90px!important;
+
+        footer>.institute {
+            color: white;
+            font-size: 14px;
+            position: absolute;
+            top: 90px !important;
         }
-        footer>nav{
-            position:absolute;
-            left:0;
-            top:40%!important;
-            right:80px;
-            color:white;
-            height:50%!important;
-      
-         }
-         header>img{
-            position:absolute;
-            top:20px;
-            width:40%!important;
-            height: 40%!important;
-            left: 5%!important;
-           
-        }
-        header>div.hero{
-        height: 150px!important;
-        width: 100%;
-        display: block;
-        position: relative;
-        padding: 1px;
-      }
-    }
-    @media only screen and (max-width: 600px) {
-      header>div.hero{
-        height: 150px!important;
-        width: 100%;
-        display: block;
-        position: relative;
-        padding: 1px;
-      }
-      footer{
-            height:300px;
-            background-color:#5D7DE1;
-            position: fixed;
-            right: 0;
-            bottom: 0;
+
+        footer>nav {
+            position: absolute;
             left: 0;
-            padding: 1rem;
-            top:100%;
-      }
-        footer>.subtitle{
-            color:white;
-            font-size:17px;
-            position:absolute;
-            top:50px;
-            font-weight:bold;
+            top: 40% !important;
+            right: 80px;
+            color: white;
+            height: 50% !important;
+
         }
-        footer>.institute{
-            color:white;
-            font-size:14px;
-            position:absolute;
-            top:80px;
+
+        header>img {
+            position: absolute;
+            top: 20px;
+            width: 40% !important;
+            height: 40% !important;
+            left: 5% !important;
+
         }
-        footer>nav{
-            position:absolute;
-            left:0;
-            top:40%;
-            right:80px;
-            color:white;
-      
-         }
-         header>img{
-            position:absolute;
-            top:20px;
-            left: 20%!important;
-           
-        }
-    }
-    @media only screen and (max-width: 760px) {
-        footer{
-            height:200px;
-            background-color:#5D7DE1;
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            padding: 1rem;
-            top:80%;
-        }
-        footer>.subtitle{
-            color:white;
-            font-size:17px;
-            position:absolute;
-            top:50px;
-            font-weight:bold;
-        }
-        footer>.institute{
-            color:white;
-            font-size:14px;
-            position:absolute;
-            top:80px;
-        }
-        footer>nav{
-            position:absolute;
-            left:0;
-            top:40%;
-            right:80px;
-            color:white;
-      
-         }
-         
-    }
-    @media only screen and (max-width: 1060px) {
-        footer{
-            height:180px;
-            background-color:#5D7DE1;
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            padding: 1rem;
-            top:70%;
-        }
-        footer>.subtitle{
-            color:white;
-            font-size:17px;
-            position:absolute;
-            top:50px;
-            font-weight:bold;
-        }
-        footer>.institute{
-            color:white;
-            font-size:14px;
-            position:absolute;
-            top:80px;
-        }
-        footer>nav{
-            position:absolute;
-            left:0;
-            top:40%;
-            right:80px;
-            color:white;
-      
-         }
-         header>img{
-            position:absolute;
-            top:20px;
-            left: 40%;
-            right:50%;
+
+        header>div.hero {
+            height: 150px !important;
+            width: 100%;
+            display: block;
+            position: relative;
+            padding: 1px;
         }
     }
 
+    @media only screen and (max-width: 600px) {
+        header>div.hero {
+            height: 150px !important;
+            width: 100%;
+            display: block;
+            position: relative;
+            padding: 1px;
+        }
+
+        footer {
+            height: 300px;
+            background-color: #5D7DE1;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 1rem;
+            top: 100%;
+        }
+
+        footer>.subtitle {
+            color: white;
+            font-size: 17px;
+            position: absolute;
+            top: 50px;
+            font-weight: bold;
+        }
+
+        footer>.institute {
+            color: white;
+            font-size: 14px;
+            position: absolute;
+            top: 80px;
+        }
+
+        footer>nav {
+            position: absolute;
+            left: 0;
+            top: 40%;
+            right: 80px;
+            color: white;
+
+        }
+
+        header>img {
+            position: absolute;
+            top: 20px;
+            left: 20% !important;
+
+        }
+    }
+
+    @media only screen and (max-width: 760px) {
+        footer {
+            height: 200px;
+            background-color: #5D7DE1;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 1rem;
+            top: 80%;
+        }
+
+        footer>.subtitle {
+            color: white;
+            font-size: 17px;
+            position: absolute;
+            top: 50px;
+            font-weight: bold;
+        }
+
+        footer>.institute {
+            color: white;
+            font-size: 14px;
+            position: absolute;
+            top: 80px;
+        }
+
+        footer>nav {
+            position: absolute;
+            left: 0;
+            top: 40%;
+            right: 80px;
+            color: white;
+
+        }
+
+    }
+
+    @media only screen and (max-width: 1060px) {
+        footer {
+            height: 180px;
+            background-color: #5D7DE1;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 1rem;
+            top: 70%;
+        }
+
+        footer>.subtitle {
+            color: white;
+            font-size: 17px;
+            position: absolute;
+            top: 50px;
+            font-weight: bold;
+        }
+
+        footer>.institute {
+            color: white;
+            font-size: 14px;
+            position: absolute;
+            top: 80px;
+        }
+
+        footer>nav {
+            position: absolute;
+            left: 0;
+            top: 40%;
+            right: 80px;
+            color: white;
+
+        }
+
+        header>img {
+            position: absolute;
+            top: 20px;
+            left: 40%;
+            right: 50%;
+        }
+    }
 </style>
 <html>
-<body>
-<% if flash[:notice] %>
-<div class="flex items-center justify-center pa4 bg-lightest-blue navy" id="alerta">
-  <svg class="w1" data-icon="info" viewBox="0 0 32 32" style="fill:currentcolor">
-    <title>info icon</title>
-    <path d="M16 0 A16 16 0 0 1 16 32 A16 16 0 0 1 16 0 M19 15 L13 15 L13 26 L19 26 z M16 6 A3 3 0 0 0 16 12 A3 3 0 0 0 16 6"></path>
-  </svg>
-  
-    <div class="notice"> <%= flash[:notice] %></div>
-  
-</div>
-<% end %>
-<header>
-  <div class="hero">
-    <article class="pa3 pa5-ns">
-        <h1 class="f4 bold center mw6">Menú</h1>
-        <ul class="list pl0 ml0 center mw6 ba b--light-silver br2">
-          <li class="ph3 pv3 bb b--light-silver"><a href="/home/out">Salir</a></li>
-        </ul>
-      </article>
-  </div>
-</header>
-<section class="content">
-<p>Descargue su documento (PDF) con el botón correspondiente. Si desea verificar sus datos personales presione la opción editar. No dude en contactarnos por cualquier pregunta a soporte@nniacademy.com</p>
-  <h1>Mis Certificados</h1>
-    <div class="ph1">
-   
-    </div>
-    <div class="pa2">
-      <div class="overflow-auto">
-        <table class="f6 w-100 mw8 center" cellspacing="0">
-          <thead>
-            <tr>
-              
-       
-              <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Curso</th>
-              <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Grupo</th>
-        
-              <th colspan="3"></th>
-            </tr>
-          </thead>
-          <tbody>
-          <% @certificados.each do |certificado| %>
-            <tr>
-              
-              <td><%= certificado.texto %></td>
-              <td><%= certificado.grupoid %></td>
-             
-              <td><a href="/inbox.pdf?grupo=<%=certificado.grupoid%>&token=<%=params[:token]%>" id="download"> Descargar</a></td>
-              <td><a href="/profile?token=<%=params[:token]%>&grupo=<%= certificado.grupoid %>" id="editar"> Editar Datos</a></td>
-              <td></td>
-            </tr>
-          <% end %>
-            </tbody>
-        </table>
-      </div>
-    </div>
-    
-</section>
-<footer>
-    <div class="green">
-    </div>
-    <div class="subtitle">Sólo para Profesionales de la Salud</div>
-    <div class="institute"> Nestlé Nutrition Institute</div>
-    <nav class="db dt-l w-100 border-box pa4 ph5-l">
 
-        <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
-            <a class="link dim white f6 f7-l dib mr3 mr3-l" href="https://www.nestlenutrition-institute.org/region/latam/general/aviso-de-privacidad" >Política de Privacidad</a>
-            <a class="link dim white f6 f7-l dib mr3 mr3-l" href="https://www.nestlenutrition-institute.org/region/latam/general/politica-de-cookies" >Política de Cookies</a>
-            <a class="link dim white f6 f7-l dib mr3 mr3-l" href="https://www.nestlenutrition-institute.org/region/latam/general/terminos-y-condiciones" >Términos y Condiciones</a>
-            <a class="link dim white f6 f7-l dib mr3 mr3-l" href="mailto:soporte@nniacademy.com" >Contáctenos</a>
+<body>
+    <% if flash[:notice] %>
+    <div class="flex items-center justify-center pa4 bg-lightest-blue navy" id="alerta">
+        <svg class="w1" data-icon="info" viewBox="0 0 32 32" style="fill:currentcolor">
+            <title>info icon</title>
+            <path
+                d="M16 0 A16 16 0 0 1 16 32 A16 16 0 0 1 16 0 M19 15 L13 15 L13 26 L19 26 z M16 6 A3 3 0 0 0 16 12 A3 3 0 0 0 16 6">
+            </path>
+        </svg>
+
+        <div class="notice"> <%= flash[:notice] %></div>
+
+    </div>
+    <% end %>
+    <header>
+        <div class="hero">
+            <article class="pa3 pa5-ns">
+                <h1 class="f4 bold center mw6">Menú</h1>
+                <ul class="list pl0 ml0 center mw6 ba b--light-silver br2">
+                    <li class="ph3 pv3 bb b--light-silver"><a href="/home/out">Salir</a></li>
+                </ul>
+            </article>
+        </div>
+    </header>
+    <section class="content">
+        <p>Descargue su documento (PDF) con el botón correspondiente. Si desea verificar sus datos personales presione
+            la opción editar. No dude en contactarnos por cualquier pregunta a soporte@nniacademy.com</p>
+        <h1>Mis Certificados</h1>
+        <div class="ph1">
 
         </div>
-    </nav>
-    
+        <div class="pa2">
+            <div class="overflow-auto">
+                <table class="f6 w-100 mw8 center" cellspacing="0">
+                    <thead>
+                        <tr>
 
-</footer>
+
+                            <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Curso</th>
+                            <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Grupo</th>
+
+                            <th colspan="3"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @certificados.each do |certificado| %>
+                        <tr>
+
+                            <td><%= certificado.texto %></td>
+                            <td><%= certificado.grupoid %></td>
+
+                            <td><a href="/inbox.pdf?grupo=<%=certificado.grupoid%>&token=<%=params[:token]%>"
+                                    id="download"> Descargar</a></td>
+                            <td><a href="/profile?token=<%=params[:token]%>&grupo=<%= certificado.grupoid %>"
+                                    id="editar"> Editar Datos</a></td>
+                            <td></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </section>
+    <footer>
+        <div class="green">
+        </div>
+        <div class="subtitle">Sólo para Profesionales de la Salud</div>
+        <div class="institute"> Nestlé Nutrition Institute</div>
+        <nav class="db dt-l w-100 border-box pa4 ph5-l">
+
+            <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+                <a class="link dim white f6 f7-l dib mr3 mr3-l"
+                    href="https://www.nestlenutrition-institute.org/region/latam/general/aviso-de-privacidad">Política
+                    de Privacidad</a>
+                <a class="link dim white f6 f7-l dib mr3 mr3-l"
+                    href="https://www.nestlenutrition-institute.org/region/latam/general/politica-de-cookies">Política
+                    de Cookies</a>
+                <a class="link dim white f6 f7-l dib mr3 mr3-l"
+                    href="https://www.nestlenutrition-institute.org/region/latam/general/terminos-y-condiciones">Términos
+                    y Condiciones</a>
+                <a class="link dim white f6 f7-l dib mr3 mr3-l" href="mailto:soporte@nniacademy.com">Contáctenos</a>
+
+            </div>
+        </nav>
+
+
+    </footer>
 </body>
+
 </html>
 <script>
-    setTimeout(function(){ 
-       $('#alerta').hide();
+    setTimeout(function () {
+        $('#alerta').hide();
     }, 3000);
 </script>

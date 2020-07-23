@@ -1,8 +1,6 @@
 class ValidacionsController < ApplicationController
   before_action :set_validacion, only: [:show, :edit, :update, :destroy]
 
-  # GET /validacions
-  # GET /validacions.json
   def index
     if cookies[:admin_id]
         
@@ -12,8 +10,6 @@ class ValidacionsController < ApplicationController
     @validacions = Validacion.all
   end
 
-  # GET /validacions/1
-  # GET /validacions/1.json
   def show
     if cookies[:admin_id]
         
@@ -22,7 +18,6 @@ class ValidacionsController < ApplicationController
     end
   end
 
-  # GET /validacions/new
   def new
     if cookies[:admin_id]
       @validacion = Validacion.new
@@ -32,7 +27,7 @@ class ValidacionsController < ApplicationController
     
   end
 
-  # GET /validacions/1/edit
+
   def edit
     if cookies[:admin_id]
         
@@ -41,8 +36,6 @@ class ValidacionsController < ApplicationController
     end
   end
 
-  # POST /validacions
-  # POST /validacions.json
   def create
     @validacion = Validacion.new(validacion_params)
 
@@ -57,8 +50,7 @@ class ValidacionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /validacions/1
-  # PATCH/PUT /validacions/1.json
+ 
   def update
     respond_to do |format|
       if @validacion.update(validacion_params)
@@ -71,8 +63,7 @@ class ValidacionsController < ApplicationController
     end
   end
 
-  # DELETE /validacions/1
-  # DELETE /validacions/1.json
+ 
   def destroy
     @validacion.destroy
     respond_to do |format|
@@ -82,12 +73,10 @@ class ValidacionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+ 
     def set_validacion
       @validacion = Validacion.find(params[:id])
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
     def validacion_params
       params.require(:validacion).permit(:numero)
     end

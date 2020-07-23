@@ -4,18 +4,8 @@ class InboxController < ApplicationController
   
 
   def index
-    #cookies[:user_id] = params[:token]
-   # crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
-   # decrypted_back = crypt.decrypt_and_verify(params[:token])
-   #cipher = OpenSSL::Cipher.new('DES-EDE3-CBC').encrypt
-   #cipher = Digest::SHA1.hexdigest params[:token]
-   #key = SecureRandom.random_bytes(32)
-   #crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
-   #decrypted_back = crypt.decrypt_and_verify(params[:token])
-    #puts "hola#{decrypted_back}"
     job_query = "%#{cookies[:user_id].downcase}%"
     @groupId = Usuario.where('email ilike ?', job_query).where(:groupId=>params[:grupo]).pluck(:id).first
-
     @usuarioId = Usuario.where('email ilike ?', job_query).pluck(:id).first
     @usuarios = Usuario.where(:groupId => params[:grupo]).where('email ilike ?', job_query)
     @usuario = Usuario.where('email ilike ?', job_query).pluck(:groupId)
@@ -28,7 +18,6 @@ class InboxController < ApplicationController
         d=Certificado.where(:grupoid => params[:grupo]).pluck(:descargas).first
         @des= Descarga.where('email ilike ?', job_query).where(:certificado=>params[:grupo]).first
         if (@des)
-         
         else
           Descarga.create({
             :certificado => params[:grupo],
@@ -48,8 +37,11 @@ class InboxController < ApplicationController
         if (@certificadoTemplate == "3")
           pdf = ReportBPdf.new(@certificado, @usuarios,:page_size => "LEGAL", :page_layout => :landscape)
         end
+        if (@certificadoTemplate == "4")
+          pdf = ReportCPdf.new(@certificado, @usuarios,:page_size => "LEGAL", :page_layout => :landscape)
+        end
 
-         send_data pdf.render, filename: fileName, type: 'application/pdf'
+         send_data pdf.render, filename: fileName, type: 'application/pdf', disposition: "inline", :skip_page_creation => true
         
       end
     end

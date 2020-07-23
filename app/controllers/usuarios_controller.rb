@@ -1,8 +1,6 @@
 class UsuariosController < ApplicationController
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
 
-  # GET /usuarios
-  # GET /usuarios.json
   def index
     @usuarios = Usuario.all
     if cookies[:user_id]
@@ -22,8 +20,6 @@ class UsuariosController < ApplicationController
     redirect_to "/usuarios", notice: 'Products imported.'
   end
 
-  # GET /usuarios/1
-  # GET /usuarios/1.json
   def show
     if cookies[:admin_id]
      
@@ -32,7 +28,6 @@ class UsuariosController < ApplicationController
     end
   end
 
-  # GET /usuarios/new
   def new
     if cookies[:admin_id]
       @usuario = Usuario.new
@@ -42,7 +37,6 @@ class UsuariosController < ApplicationController
     
   end
 
-  # GET /usuarios/1/edit
   def edit
     if cookies[:admin_id]
         

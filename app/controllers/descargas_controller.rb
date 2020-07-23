@@ -1,28 +1,22 @@
 class DescargasController < ApplicationController
   before_action :set_descarga, only: [:show, :edit, :update, :destroy]
 
-  # GET /descargas
-  # GET /descargas.json
   def index
     @descargas = Descarga.all
   end
 
-  # GET /descargas/1
-  # GET /descargas/1.json
   def show
   end
 
-  # GET /descargas/new
+
   def new
     @descarga = Descarga.new
   end
 
-  # GET /descargas/1/edit
   def edit
   end
 
-  # POST /descargas
-  # POST /descargas.json
+ 
   def create
     @descarga = Descarga.new(descarga_params)
 
@@ -37,8 +31,6 @@ class DescargasController < ApplicationController
     end
   end
 
-  # PATCH/PUT /descargas/1
-  # PATCH/PUT /descargas/1.json
   def update
     respond_to do |format|
       if @descarga.update(descarga_params)
@@ -51,8 +43,6 @@ class DescargasController < ApplicationController
     end
   end
 
-  # DELETE /descargas/1
-  # DELETE /descargas/1.json
   def destroy
     @descarga.destroy
     respond_to do |format|
@@ -62,12 +52,12 @@ class DescargasController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+  
     def set_descarga
       @descarga = Descarga.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+   
     def descarga_params
       params.require(:descarga).permit(:certificado, :email)
     end
