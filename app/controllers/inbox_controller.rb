@@ -41,7 +41,7 @@ class InboxController < ApplicationController
           pdf = ReportCPdf.new(@certificado, @usuarios,:page_size => "LEGAL", :page_layout => :landscape)
         end
 
-         send_data pdf.render, filename: fileName, type: 'application/pdf', disposition: "inline", :skip_page_creation => true
+         send_data pdf.render, filename: fileName, type: 'application/pdf'#, disposition: "inline", :skip_page_creation => true
         
       end
     end
