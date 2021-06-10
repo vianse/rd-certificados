@@ -24,21 +24,27 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-# development:
-#   <<: *default
-#   database: rd-certificados
-#   username: reaccion_digital
-#   password: 'hola123,'
-
-pruebas:
+development:
   <<: *default
-  host: ec2-54-88-130-244.compute-1.amazonaws.com
-  database: d69cq3tasimtdn
-      #username: RD_Certificados
-      #password: <%= ENV['RD_CERTIFICADOS_DATABASE_PASSWORD'] %>
-  username: vattpqclnybbwn
-  port: 5432
-  password: eec1121612e376381640309d595f184b174fde8ef715065498eb79356063ffc9
+  # host: ec2-50-17-203-51.compute-1.amazonaws.com
+  # database: dfb7i9ao6f5ise
+  # username: xkiemsqcovsxyp
+  # port: 5432
+  # password: a5d8f735a808db2d7319be90cfb6099271d0199b2775394b2251dbc93318354e
+  database: rd-certificados
+  username: reaccion_digital
+  password: 'hola123,'
+  
+
+# pruebas:
+#   <<: *default
+#   host: ec2-54-88-130-244.compute-1.amazonaws.com
+#   database: d69cq3tasimtdn
+#       #username: RD_Certificados
+#       #password: <%= ENV['RD_CERTIFICADOS_DATABASE_PASSWORD'] %>
+#   username: vattpqclnybbwn
+#   port: 5432
+#   password: eec1121612e376381640309d595f184b174fde8ef715065498eb79356063ffc9
 
 
   # The specified database role being used to connect to postgres.
@@ -103,6 +109,7 @@ production:
   #database: RD_Certificados_production
   #username: RD_Certificados
   #password: <%= ENV['RD_CERTIFICADOS_DATABASE_PASSWORD'] %>
+  host: ec2-50-17-203-51.compute-1.amazonaws.com
   database: dfb7i9ao6f5ise
   username: xkiemsqcovsxyp
   port: 5432
