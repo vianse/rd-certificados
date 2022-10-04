@@ -91,7 +91,7 @@ GEM
     nokogiri (1.10.9-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     pdf-core (0.7.0)
-    pdfkit (0.8.4.1)
+    pdfkit (0.8.7)
     pg (1.1.4)
     pg (1.1.4-x64-mingw32)
     prawn (2.2.2)
